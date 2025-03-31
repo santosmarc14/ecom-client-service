@@ -49,7 +49,10 @@ const login = async () => {
             const data = response.data;
             data.expires_in = new Date(Date.now() + data.expires_in).toISOString();
             
-            console.log(data.expires_in);
+            localStorage.setItem('auth', JSON.stringify(data));
+
+            window.location.href="/home";
+            
         })
         .catch()
         .finally();
